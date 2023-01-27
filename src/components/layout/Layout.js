@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../main/footerbar/Foterbar";
+import Navbar from "../main/navbar/Navbar";
 import Searchbar from "../main/searchbar/Searchbar";
 import Footerbar from "../main/footerbar/Foterbar";
 import Main from "../main/Main";
