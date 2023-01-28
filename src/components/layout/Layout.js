@@ -1,17 +1,18 @@
-import React from "react";
-import Navbar from "../main/navbar/Navbar";
-import Searchbar from "../main/searchbar/Searchbar";
-import Footerbar from "../main/footerbar/Foterbar";
+import React, { useState } from "react";
+
+import Searchbar from "./searchbar/Searchbar";
+import Footerbar from "./footerbar/Foterbar";
 import Main from "../main/Main";
 
 import { Container } from "@mui/system";
 
 const Layout = () => {
+  const [searchedProduct, setSearchedProduct] = useState();
+
   return (
     <Container>
-      <Navbar />
-      <Searchbar />
-      <Main />
+      <Searchbar setSearchedProduct={setSearchedProduct} />
+      <Main searchedProduct={searchedProduct} />
       <Footerbar />
     </Container>
   );
