@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import Popup from "./Popup";
 import BasicPagination from "./BasicPagination";
+import Error from "./Error";
 
 import {
   Paper,
@@ -15,6 +16,7 @@ import {
 
 const Main = ({ searchedProduct }) => {
   const [products, setProducts] = useState([]);
+  const [error, setError] = useState(null);
   const [open, setOpen] = useState(false);
   const [modalInfo, setModalInfo] = useState();
   const [startIndex, setStartIndex] = useState(0);
@@ -29,7 +31,7 @@ const Main = ({ searchedProduct }) => {
           setProducts((products) => [...products, product])
         );
       } catch (err) {
-        console.log(err);
+        setError("Something went wrong");
       }
     };
     dataFetch();
@@ -100,6 +102,7 @@ const Main = ({ searchedProduct }) => {
         </TableBody>
       </Table>
       {open && <Popup open={open} setOpen={setOpen} modalInfo={modalInfo} />}
+      {error && <Error error={error} />}
       <BasicPagination
         startIndex={startIndex}
         setStartIndex={setStartIndex}
