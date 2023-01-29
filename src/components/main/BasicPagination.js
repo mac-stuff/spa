@@ -20,9 +20,7 @@ const BasicPagination = ({
       <Button onClick={handleClickPrev} disabled={startIndex === 0}>
         prev
       </Button>
-      <Button onClick={handleClickNext} disabled={startIndex === 5}>
-        next
-      </Button>
+      <Button onClick={handleClickNext}>next</Button>
     </Stack>
   );
 };
